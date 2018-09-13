@@ -9,6 +9,32 @@
   </head>
 
   <body>
+
     <%= yield %>
+
+
+
+
+    <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+      <% end %>
+    <% end %>
+<br>
+<br>
+<br>
+    <% if logged_in?  %>
+
+    <form  action="<%=session_url%>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" name="" value="Logging out!!!">
+    </form>
+
+    <form  action="<%=new_cat_url%>" method="post">
+    <input type="hidden" name="_method" value="get">
+    <input type="submit" name="" value="MAKE A CAT!!!!">
+    </form>
+
+    <% end  %>
   </body>
 </html>

@@ -1,0 +1,36 @@
+<% if type == :login %>
+<% button_name = "LOGIN" %>
+<% action_path = session_url %>
+<% else %>
+<% button_name = "Creating a account" %>
+<% action_path = users_url %>
+<% end %>
+
+
+<form action="<%= action_path %>" method="post">
+
+  <input
+    type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>">
+
+  <label for="username">Name</label>
+  <input
+    type="text"
+    name="user[username]"
+    id="username"
+    value="Enter Username">
+
+  <br>
+
+  <label for="password">Password</label>
+  <input
+    type="password"
+    name="user[password]"
+    id="password"
+    value="">
+
+  <br>
+
+  <input type="submit" value= "<%= button_name %>">
+</form>

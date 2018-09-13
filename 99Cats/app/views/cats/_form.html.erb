@@ -3,6 +3,7 @@
 
 <form action="<%= action %>" method="post">
   <input type="hidden" name="_method" value="<%= method %>">
+  <input name="cat[user_id]" type="hidden" value="<%= current_user.id %>">
 
   <label for="cat_name">Name</label>
   <input
